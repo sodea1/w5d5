@@ -12,6 +12,14 @@ end
 
 def golden_age
   # Find the decade with the highest average movie score.
+  Movie
+    .group('(yr/10)*10')
+    .order("AVG(score) DESC")
+    .limit(1)
+    .pluck('(yr/10)*10')
+    .first
+
+    
 
 
 end
